@@ -3,126 +3,23 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Cryptozoology Club</title>
+  <title>Join - Cryptozoology Club</title>
   <style>
-    body {
-      background-color: #1a1a2e;
-      color: #e0e0e0;
-      font-family: 'Arial', sans-serif;
-      margin: 0;
-      padding: 0;
-    }
-
-    header {
-      background-color: #0f3460;
-      padding: 20px;
-      text-align: center;
-    }
-
-    header h1 {
-      margin: 0;
-      font-size: 2.5em;
-    }
-
-    nav {
-      background-color: #16213e;
-      display: flex;
-      justify-content: center;
-      padding: 10px 0;
-    }
-
-    nav a {
-      color: #e94560;
-      margin: 0 15px;
-      text-decoration: none;
-      font-weight: bold;
-      cursor: pointer;
-    }
-
-    nav a:hover {
-      text-decoration: underline;
-    }
-
-    main {
-      padding: 20px;
-    }
-
-    section {
-      margin-bottom: 40px;
-    }
-
-    h2, h1 {
-      color: #e94560;
-    }
-
-    footer {
-      background-color: #0f3460;
-      color: #ccc;
-      text-align: center;
-      padding: 15px;
-    }
-
-    .page {
-      display: none;
-    }
-
-    .page.active {
-      display: block;
-    }
+    body { background-color: #1a1a2e; color: #e0e0e0; font-family: Arial, sans-serif; margin: 0; padding: 0; }
+    header, footer { background-color: #0f3460; text-align: center; padding: 20px; }
+    h1 { color: #e94560; }
+    a { color: #e94560; text-decoration: none; }
   </style>
 </head>
 <body>
   <header>
-    <h1>Cryptozoology Club</h1>
-    <p>Exploring the Mysterious Creatures of the World</p>
+    <h1>Join the Club</h1>
   </header>
-
-  <nav>
-    <a onclick="showPage('home')">Home</a>
-    <a onclick="showPage('about')">About</a>
-    <a onclick="showPage('creatures')">Creatures</a>
-    <a onclick="showPage('join')">Join</a>
-  </nav>
-
   <main>
-    <section id="home" class="page active">
-      <p>Welcome to the Cryptozoology Club website! Use the links above to learn more about us, explore famous creatures, or join the club.</p>
-    </section>
-
-    <section id="about" class="page">
-      <h2>About the Club</h2>
-      <p>The Cryptozoology Club is for kids in 3rd grade who love learning about mysterious creatures like Bigfoot, Nessie, and Mothman.</p>
-      <p>No adults allowed! This club is all about having fun and being curious.</p>
-    </section>
-
-    <section id="creatures" class="page">
-      <h2>Famous Creatures</h2>
-      <ul>
-        <li>Bigfoot</li>
-        <li>Loch Ness Monster</li>
-        <li>Chupacabra</li>
-        <li>Mothman</li>
-        <li>Jersey Devil</li>
-      </ul>
-    </section>
-
-    <section id="join" class="page">
-      <h2>Join the Club</h2>
-      <p>To join the Cryptozoology Club, go to Sammy or Shivvan in 3H!</p>
-      <p>They're super nice and love talking about cryptids 🐾</p>
-    </section>
+    <p>To join the Cryptozoology Club, go to Sammy or Shivvan in 3H!</p>
+    <p>They're super nice and love talking about cryptids 🐾</p>
+    <p><a href="index.html">← Back to Home</a></p>
   </main>
-
-  <footer>
-    &copy; 2025 Cryptozoology Club. Keep searching for the unknown!
-  </footer>
-
-  <script>
-    function showPage(pageId) {
-      const pages = document.querySelectorAll('.page');
-      pages.forEach(page => page.classList.remove('active'));
-      document.getElementById(pageId).classList.add('active');
-    }
-  </script>
+  <footer>&copy; 2025 Cryptozoology Club</footer>
 </body>
 </html>
