@@ -36,6 +36,7 @@
       margin: 0 15px;
       text-decoration: none;
       font-weight: bold;
+      cursor: pointer;
     }
 
     nav a:hover {
@@ -50,7 +51,7 @@
       margin-bottom: 40px;
     }
 
-    h2 {
+    h2, h1 {
       color: #e94560;
     }
 
@@ -59,6 +60,14 @@
       color: #ccc;
       text-align: center;
       padding: 15px;
+    }
+
+    .page {
+      display: none;
+    }
+
+    .page.active {
+      display: block;
     }
   </style>
 </head>
@@ -69,17 +78,51 @@
   </header>
 
   <nav>
-    <a href="about.html">About</a>
-    <a href="creatures.html">Creatures</a>
-    <a href="join.html">Join</a>
+    <a onclick="showPage('home')">Home</a>
+    <a onclick="showPage('about')">About</a>
+    <a onclick="showPage('creatures')">Creatures</a>
+    <a onclick="showPage('join')">Join</a>
   </nav>
 
   <main>
-    <p>Welcome to the Cryptozoology Club website! Use the links above to learn more about us, explore famous creatures, or join the club.</p>
+    <section id="home" class="page active">
+      <p>Welcome to the Cryptozoology Club website! Use the links above to learn more about us, explore famous creatures, or join the club.</p>
+    </section>
+
+    <section id="about" class="page">
+      <h2>About the Club</h2>
+      <p>The Cryptozoology Club is for kids in 3rd grade who love learning about mysterious creatures like Bigfoot, Nessie, and Mothman.</p>
+      <p>No adults allowed! This club is all about having fun and being curious.</p>
+    </section>
+
+    <section id="creatures" class="page">
+      <h2>Famous Creatures</h2>
+      <ul>
+        <li>Bigfoot</li>
+        <li>Loch Ness Monster</li>
+        <li>Chupacabra</li>
+        <li>Mothman</li>
+        <li>Jersey Devil</li>
+      </ul>
+    </section>
+
+    <section id="join" class="page">
+      <h2>Join the Club</h2>
+      <p>To join the Cryptozoology Club, go to Sammy or Shivvan in 3H!</p>
+      <p>They're super nice and love talking about cryptids 🐾</p>
+    </section>
   </main>
 
   <footer>
     &copy; 2025 Cryptozoology Club. Keep searching for the unknown!
   </footer>
+
+  <script>
+    function showPage(pageId) {
+      const pages = document.querySelectorAll('.page');
+      pages.forEach(page => page.classList.remove('active'));
+      document.getElementById(pageId).classList.add('active');
+    }
+  </script>
 </body>
 </html>
