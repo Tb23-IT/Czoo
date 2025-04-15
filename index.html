@@ -26,8 +26,6 @@
 
     nav {
       background-color: #16213e;
-      display: flex;
-      justify-content: center;
       padding: 10px 0;
       position: relative;
     }
@@ -60,6 +58,60 @@
 
     nav a:hover::before {
       opacity: 1;
+    }
+
+    .nav-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 0 20px;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 10px;
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 30px;
+      height: 21px;
+      cursor: pointer;
+    }
+
+    .hamburger div {
+      background-color: #e94560;
+      height: 3px;
+      width: 100%;
+      border-radius: 5px;
+    }
+
+    .nav-links.mobile {
+      display: none;
+      flex-direction: column;
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    .nav-links.mobile.active {
+      display: flex;
+    }
+
+    @media (max-width: 768px) {
+      .nav-links.desktop {
+        display: none;
+      }
+      .hamburger {
+        display: flex;
+        position: absolute;
+        left: 20px;
+        top: 10px;
+      }
+      .nav-container {
+        justify-content: center;
+      }
     }
 
     main {
@@ -98,55 +150,6 @@
     .small-text {
       font-size: 0.8em;
     }
-
-    /* Hamburger menu styles */
-    .hamburger {
-      display: none;
-      flex-direction: column;
-      justify-content: space-between;
-      width: 30px;
-      height: 21px;
-      cursor: pointer;
-    }
-
-    .hamburger div {
-      background-color: #e94560;
-      height: 3px;
-      width: 100%;
-      border-radius: 5px;
-    }
-
-    /* Mobile navigation */
-    .nav-links {
-      display: flex;
-    }
-
-    /* Mobile menu hidden by default */
-    .nav-links.mobile {
-      display: none;
-      flex-direction: column;
-      width: 100%;
-      text-align: center;
-    }
-
-    .nav-links.mobile a {
-      margin: 10px 0;
-    }
-
-    /* Show hamburger on small screens */
-    @media (max-width: 768px) {
-      .hamburger {
-        display: flex;
-      }
-
-      .nav-links {
-        display: none;
-      }
-
-      .nav-links.mobile {
-        display: flex;
-      }
-    }
   </style>
 </head>
 <body>
@@ -156,24 +159,21 @@
   </header>
 
   <nav>
-    <!-- Hamburger menu -->
-    <div class="hamburger" onclick="toggleMenu()">
-      <div></div>
-      <div></div>
-      <div></div>
+    <div class="nav-container">
+      <div class="hamburger" onclick="toggleMenu()">
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+      <div class="nav-links desktop">
+        <a onclick="showPage('home')">🏠 Home</a>
+        <a onclick="showPage('about')">ℹ️ About</a>
+        <a onclick="showPage('creatures')">👾 Creatures</a>
+        <a onclick="showPage('join')">🧱 Join</a>
+        <a onclick="showPage('report')">📝 Report a Sighting</a>
+      </div>
     </div>
-
-    <!-- Nav links -->
-    <div class="nav-links">
-      <a onclick="showPage('home')">🏠 Home</a>
-      <a onclick="showPage('about')">ℹ️ About</a>
-      <a onclick="showPage('creatures')">👾 Creatures</a>
-      <a onclick="showPage('join')">🧱 Join</a>
-      <a onclick="showPage('report')">📝 Report a Sighting</a>
-    </div>
-
-    <!-- Mobile nav links -->
-    <div class="nav-links mobile">
+    <div class="nav-links mobile" id="mobileMenu">
       <a onclick="showPage('home')">🏠 Home</a>
       <a onclick="showPage('about')">ℹ️ About</a>
       <a onclick="showPage('creatures')">👾 Creatures</a>
@@ -183,7 +183,6 @@
   </nav>
 
   <main>
-    <!-- Home Page -->
     <section id="home" class="page active">
       <h2>Czoo Website</h2>
       <p>Welcome to the Cryptozoology Club! This is the official site for spotting weird and mysterious creatures from around the world. We’re always on the lookout for strange sightings—so if you see something, say something!</p>
@@ -194,7 +193,6 @@
       <p class="small-text">*I do not believe in this -Theodore</p>
     </section>
 
-    <!-- About Us Page -->
     <section id="about" class="page">
       <h2>About Us</h2>
       <p>The Cryptozoology Club is a group of explorers and researchers dedicated to investigating strange and unknown creatures—also known as cryptids. Our mission is to track down the truth behind monster sightings and mysterious events.</p>
@@ -207,7 +205,6 @@
       <p>We’ve worked hard to build this club, and we need your help to keep it going strong!</p>
     </section>
 
-    <!-- Creatures Page -->
     <section id="creatures" class="page">
       <h2>Creatures</h2>
       <p>Here are some of the mysterious beings we’re currently investigating:</p>
@@ -219,7 +216,6 @@
       <p>If you spot something and it’s using something strange—like a tool or weapon—let us know what Wicked Weapon they wielded!</p>
     </section>
 
-    <!-- Join Page -->
     <section id="join" class="page">
       <h2>Join</h2>
       <p>Want to join the Cryptozoology Club? It’s easy! If you’ve ever seen a weird creature or noticed something unusual, we want to hear from you.</p>
@@ -232,7 +228,6 @@
       <p><strong>(HEY, IF YOU'RE LYING — WELL, WE WILL FIND OUT 😈)</strong></p>
     </section>
 
-    <!-- Report a Sighting Page -->
     <section id="report" class="page">
       <h2>Report a Sighting</h2>
       <p>If you've seen something mysterious, you can report it here! Fill out the form below to submit your sighting report, and optionally upload an image to support your sighting.</p>
@@ -249,10 +244,15 @@
       const pages = document.querySelectorAll('.page');
       pages.forEach(page => page.classList.remove('active'));
       document.getElementById(pageId).classList.add('active');
+
+      const menu = document.getElementById('mobileMenu');
+      if (menu.classList.contains('active')) {
+        menu.classList.remove('active');
+      }
     }
 
     function toggleMenu() {
-      const menu = document.querySelector('.nav-links.mobile');
+      const menu = document.getElementById('mobileMenu');
       menu.classList.toggle('active');
     }
   </script>
