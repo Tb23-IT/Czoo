@@ -29,6 +29,7 @@
       display: flex;
       justify-content: center;
       padding: 10px 0;
+      position: relative;
     }
 
     nav a {
@@ -97,6 +98,55 @@
     .small-text {
       font-size: 0.8em;
     }
+
+    /* Hamburger menu styles */
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 30px;
+      height: 21px;
+      cursor: pointer;
+    }
+
+    .hamburger div {
+      background-color: #e94560;
+      height: 3px;
+      width: 100%;
+      border-radius: 5px;
+    }
+
+    /* Mobile navigation */
+    .nav-links {
+      display: flex;
+    }
+
+    /* Mobile menu hidden by default */
+    .nav-links.mobile {
+      display: none;
+      flex-direction: column;
+      width: 100%;
+      text-align: center;
+    }
+
+    .nav-links.mobile a {
+      margin: 10px 0;
+    }
+
+    /* Show hamburger on small screens */
+    @media (max-width: 768px) {
+      .hamburger {
+        display: flex;
+      }
+
+      .nav-links {
+        display: none;
+      }
+
+      .nav-links.mobile {
+        display: flex;
+      }
+    }
   </style>
 </head>
 <body>
@@ -106,11 +156,30 @@
   </header>
 
   <nav>
-    <a onclick="showPage('home')">🏠 Home</a>
-    <a onclick="showPage('about')">ℹ️ About</a>
-    <a onclick="showPage('creatures')">👾 Creatures</a>
-    <a onclick="showPage('join')">🧱 Join</a>
-    <a onclick="showPage('report')">📝 Report a Sighting</a>
+    <!-- Hamburger menu -->
+    <div class="hamburger" onclick="toggleMenu()">
+      <div></div>
+      <div></div>
+      <div></div>
+    </div>
+
+    <!-- Nav links -->
+    <div class="nav-links">
+      <a onclick="showPage('home')">🏠 Home</a>
+      <a onclick="showPage('about')">ℹ️ About</a>
+      <a onclick="showPage('creatures')">👾 Creatures</a>
+      <a onclick="showPage('join')">🧱 Join</a>
+      <a onclick="showPage('report')">📝 Report a Sighting</a>
+    </div>
+
+    <!-- Mobile nav links -->
+    <div class="nav-links mobile">
+      <a onclick="showPage('home')">🏠 Home</a>
+      <a onclick="showPage('about')">ℹ️ About</a>
+      <a onclick="showPage('creatures')">👾 Creatures</a>
+      <a onclick="showPage('join')">🧱 Join</a>
+      <a onclick="showPage('report')">📝 Report a Sighting</a>
+    </div>
   </nav>
 
   <main>
@@ -180,6 +249,11 @@
       const pages = document.querySelectorAll('.page');
       pages.forEach(page => page.classList.remove('active'));
       document.getElementById(pageId).classList.add('active');
+    }
+
+    function toggleMenu() {
+      const menu = document.querySelector('.nav-links.mobile');
+      menu.classList.toggle('active');
     }
   </script>
 </body>
