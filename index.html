@@ -37,10 +37,28 @@
       text-decoration: none;
       font-weight: bold;
       cursor: pointer;
+      position: relative;
+      padding: 5px 10px;
+      border-radius: 12px;
+      z-index: 1;
     }
 
-    nav a:hover {
-      text-decoration: underline;
+    nav a::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      border-radius: 12px;
+      background-color: rgba(233, 69, 96, 0.2);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      z-index: -1;
+    }
+
+    nav a:hover::before {
+      opacity: 1;
     }
 
     main {
@@ -69,6 +87,16 @@
     .page.active {
       display: block;
     }
+
+    iframe {
+      width: 100%;
+      height: 914px;
+      border: none;
+    }
+
+    .small-text {
+      font-size: 0.8em;
+    }
   </style>
 </head>
 <body>
@@ -82,9 +110,11 @@
     <a onclick="showPage('about')">ℹ️ About</a>
     <a onclick="showPage('creatures')">👾 Creatures</a>
     <a onclick="showPage('join')">🧱 Join</a>
+    <a onclick="showPage('report')">📝 Report a Sighting</a>
   </nav>
 
   <main>
+    <!-- Home Page -->
     <section id="home" class="page active">
       <h2>Czoo Website</h2>
       <p>Welcome to the Cryptozoology Club! This is the official site for spotting weird and mysterious creatures from around the world. We’re always on the lookout for strange sightings—so if you see something, say something!</p>
@@ -92,9 +122,10 @@
       <p>“In the past few months, the Cryptozoology Club has been receiving reports of monster sightings. We believe many of these could be Bigfoot—a very big gray creature seen in forests, mountains, and other wild places across the globe.”</p>
       <p>Website made by: Theodore* (Sam’s brother)</p>
       <p>URL: <a href="https://tb23-it.github.io/czoo" target="_blank">tb23-it.github.io/czoo</a></p>
-      *I do not belive in this -Theodore
+      <p class="small-text">*I do not believe in this -Theodore</p>
     </section>
 
+    <!-- About Us Page -->
     <section id="about" class="page">
       <h2>About Us</h2>
       <p>The Cryptozoology Club is a group of explorers and researchers dedicated to investigating strange and unknown creatures—also known as cryptids. Our mission is to track down the truth behind monster sightings and mysterious events.</p>
@@ -107,6 +138,7 @@
       <p>We’ve worked hard to build this club, and we need your help to keep it going strong!</p>
     </section>
 
+    <!-- Creatures Page -->
     <section id="creatures" class="page">
       <h2>Creatures</h2>
       <p>Here are some of the mysterious beings we’re currently investigating:</p>
@@ -118,6 +150,7 @@
       <p>If you spot something and it’s using something strange—like a tool or weapon—let us know what Wicked Weapon they wielded!</p>
     </section>
 
+    <!-- Join Page -->
     <section id="join" class="page">
       <h2>Join</h2>
       <p>Want to join the Cryptozoology Club? It’s easy! If you’ve ever seen a weird creature or noticed something unusual, we want to hear from you.</p>
@@ -129,12 +162,18 @@
       <p>We’ll look for clues and follow up!</p>
       <p><strong>(HEY, IF YOU'RE LYING — WELL, WE WILL FIND OUT 😈)</strong></p>
     </section>
+
+    <!-- Report a Sighting Page -->
+    <section id="report" class="page">
+      <h2>Report a Sighting</h2>
+      <p>If you've seen something mysterious, you can report it here! Fill out the form below to submit your sighting report, and optionally upload an image to support your sighting.</p>
+      <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdPgJgvuMKutx2togXwiassonmrsGQDmrkkkBGBVYE5U0ooww/viewform?embedded=true" width="640" height="914" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+    </section>
   </main>
 
   <footer>
-  Cryptozoology Club — Keep searching for the unknown!
-</footer>
-
+    Cryptozoology Club — Keep searching for the unknown!
+  </footer>
 
   <script>
     function showPage(pageId) {
