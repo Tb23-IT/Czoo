@@ -3,23 +3,144 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Join - Cryptozoology Club</title>
+  <title>Cryptozoology Club</title>
   <style>
-    body { background-color: #1a1a2e; color: #e0e0e0; font-family: Arial, sans-serif; margin: 0; padding: 0; }
-    header, footer { background-color: #0f3460; text-align: center; padding: 20px; }
-    h1 { color: #e94560; }
-    a { color: #e94560; text-decoration: none; }
+    body {
+      background-color: #1a1a2e;
+      color: #e0e0e0;
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #0f3460;
+      padding: 20px;
+      text-align: center;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.5em;
+    }
+
+    nav {
+      background-color: #16213e;
+      display: flex;
+      justify-content: center;
+      padding: 10px 0;
+    }
+
+    nav a {
+      color: #e94560;
+      margin: 0 15px;
+      text-decoration: none;
+      font-weight: bold;
+      cursor: pointer;
+    }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
+    main {
+      padding: 20px;
+    }
+
+    section {
+      margin-bottom: 40px;
+    }
+
+    h2, h1 {
+      color: #e94560;
+    }
+
+    footer {
+      background-color: #0f3460;
+      color: #ccc;
+      text-align: center;
+      padding: 15px;
+    }
+
+    .page {
+      display: none;
+    }
+
+    .page.active {
+      display: block;
+    }
   </style>
 </head>
 <body>
   <header>
-    <h1>Join the Club</h1>
+    <h1>Cryptozoology Club</h1>
+    <p>Exploring the Mysterious Creatures of the World</p>
   </header>
+
+  <nav>
+    <a onclick="showPage('home')">🏠 Home</a>
+    <a onclick="showPage('about')">ℹ️ About</a>
+    <a onclick="showPage('creatures')">👾 Creatures</a>
+    <a onclick="showPage('join')">🧱 Join</a>
+  </nav>
+
   <main>
-    <p>To join the Cryptozoology Club, go to Sammy or Shivvan in 3H!</p>
-    <p>They're super nice and love talking about cryptids 🐾</p>
-    <p><a href="index.html">← Back to Home</a></p>
+    <section id="home" class="page active">
+      <h2>Czoo Website</h2>
+      <p>Welcome to the Cryptozoology Club! This is the official site for spotting weird and mysterious creatures from around the world. We’re always on the lookout for strange sightings—so if you see something, say something!</p>
+      <h3>Check out our latest update below:</h3>
+      <p>“In the past few months, the Cryptozoology Club has been receiving reports of monster sightings. We believe many of these could be Bigfoot—a very big gray creature seen in forests, mountains, and other wild places across the globe.”</p>
+      <p>Website made by: Theodore (Sam’s brother)</p>
+      <p>URL: <a href="https://tb23-it.github.io/czoo" target="_blank">tb23-it.github.io/czoo</a></p>
+    </section>
+
+    <section id="about" class="page">
+      <h2>About Us</h2>
+      <p>The Cryptozoology Club is a group of explorers and researchers dedicated to investigating strange and unknown creatures—also known as cryptids. Our mission is to track down the truth behind monster sightings and mysterious events.</p>
+      <p>We take all reports seriously, and we always look for clues and evidence. We only want real stories, not made-up ones—so please don’t lie.</p>
+      <h3>Leaders:</h3>
+      <ul>
+        <li>CEO: Shivaan</li>
+        <li>President: Sam</li>
+      </ul>
+      <p>We’ve worked hard to build this club, and we need your help to keep it going strong!</p>
+    </section>
+
+    <section id="creatures" class="page">
+      <h2>Creatures</h2>
+      <p>Here are some of the mysterious beings we’re currently investigating:</p>
+      <ul>
+        <li><strong>Bigfoot</strong> – A tall, gray, human-like creature seen in forests and mountains.</li>
+        <li><strong>Boggy Creek Monster</strong> – A legendary beast reported in swampy areas.</li>
+        <li>More cryptids to come as we gather new reports!</li>
+      </ul>
+      <p>If you spot something and it’s using something strange—like a tool or weapon—let us know what Wicked Weapon they wielded!</p>
+    </section>
+
+    <section id="join" class="page">
+      <h2>Join</h2>
+      <p>Want to join the Cryptozoology Club? It’s easy! If you’ve ever seen a weird creature or noticed something unusual, we want to hear from you.</p>
+      <ul>
+        <li>Be honest!</li>
+        <li>Give as much detail as possible.</li>
+        <li>Tell us what the creature looked like, where you saw it, and if it used anything strange (like a weapon or tool).</li>
+      </ul>
+      <p>We’ll look for clues and follow up!</p>
+      <p><strong>(HEY, IF YOU'RE LYING — WELL, WE WILL FIND OUT 😈)</strong></p>
+    </section>
   </main>
-  <footer>&copy; 2025 Cryptozoology Club</footer>
+
+  <footer>
+  Cryptozoology Club — Keep searching for the unknown!
+</footer>
+
+
+  <script>
+    function showPage(pageId) {
+      const pages = document.querySelectorAll('.page');
+      pages.forEach(page => page.classList.remove('active'));
+      document.getElementById(pageId).classList.add('active');
+    }
+  </script>
 </body>
 </html>
