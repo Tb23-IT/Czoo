@@ -37,32 +37,21 @@
       font-weight: bold;
       cursor: pointer;
       position: relative;
-      padding: 5px 10px;
-      border-radius: 12px;
+      padding: 8px 16px;
+      border-radius: 15px;
+      background-color: rgba(233, 69, 96, 0.1);
+      transition: all 0.3s ease;
       z-index: 1;
     }
 
-    nav a::before {
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      right: 0;
-      bottom: 0;
-      border-radius: 12px;
-      background-color: rgba(233, 69, 96, 0.2);
-      opacity: 0;
-      transition: opacity 0.3s ease;
-      z-index: -1;
-    }
-
-    nav a:hover::before {
-      opacity: 1;
+    nav a:hover {
+      background-color: rgba(233, 69, 96, 0.4);
+      transform: scale(1.1);
     }
 
     .nav-container {
       display: flex;
-      justify-content: center; /* Centers the desktop menu */
+      justify-content: center;
       align-items: center;
       padding: 0 20px;
     }
@@ -203,7 +192,7 @@
         <p>URL: <a href="https://tb23-it.github.io/czoo" target="_blank">tb23-it.github.io/czoo</a></p>
         <p class="small-text">*I do not believe in this -Theodore</p>
       </section>
-    
+
       <section id="about" class="page">
         <h2>About Us</h2>
         <p>The Cryptozoology Club is a group of explorers and researchers dedicated to investigating strange and unknown creatures—also known as cryptids. Our mission is to track down the truth behind monster sightings and mysterious events.</p>
@@ -215,7 +204,7 @@
         </ul>
         <p>We’ve worked hard to build this club, and we need your help to keep it going strong!</p>
       </section>
-    
+
       <section id="creatures" class="page">
         <h2>Creatures</h2>
         <p>Here are some of the mysterious beings we’re currently investigating:</p>
@@ -228,7 +217,7 @@
         </ul>
         <p>If you spot something and it’s using something strange—like a tool or weapon—let us know what Wicked Weapon they wielded!</p>
       </section>
-    
+
       <section id="join" class="page">
         <h2>Join</h2>
         <p>Want to join the Cryptozoology Club? It’s easy! If you’ve ever seen a weird creature or noticed something unusual, we want to hear from you.</p>
@@ -240,30 +229,31 @@
         <p>We’ll look for clues and follow up!</p>
         <p><strong>(HEY, IF YOU'RE LYING — WELL, WE WILL FIND OUT 😈)</strong></p>
       </section>
-    
+
       <section id="report" class="page">
         <h2>Report a Sighting</h2>
         <p>If you've seen something mysterious, you can report it here! Fill out the form below to submit your sighting report, and optionally upload an image to support your sighting.</p>
         <iframe src="https://docs.google.com/forms/d/e/1FAIpQLSdPgJgvuMKutx2togXwiassonmrsGQDmrkkkBGBVYE5U0ooww/viewform?embedded=true" width="640" height="720" frameborder="0" marginheight="0" marginwidth="0">Loading…</iframe>
+      </section>
     </div>
   </main>
-  
+
   <footer>
     Cryptozoology Club — Keep searching for the unknown!
   </footer>
-  
+
   <script>
     function showPage(pageId) {
       const pages = document.querySelectorAll('.page');
       pages.forEach(page => page.classList.remove('active'));
       document.getElementById(pageId).classList.add('active');
-      
+
       const menu = document.getElementById('mobileMenu');
       if (menu.classList.contains('active')) {
         menu.classList.remove('active');
       }
     }
-    
+
     function toggleMenu() {
       const menu = document.getElementById('mobileMenu');
       menu.classList.toggle('active');
