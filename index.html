@@ -229,6 +229,7 @@
         </ul>
         <p>We’ll look for clues and follow up!</p>
         <p><strong>(HEY, IF YOU'RE LYING — WELL, WE WILL FIND OUT 😈)</strong></p>
+        <p><strong>To join:</strong> Go to 301 Freedom Place South, NY NY, Room 317 (3E) and ask for Sammy or Room 316 (3S) and ask for Shivaan.</p>
       </section>
 
       <section id="report" class="page">
@@ -240,7 +241,8 @@
   </main>
 
   <footer>
-    Cryptozoology Club — Keep searching for the unknown!
+    Cryptozoology Club — Keep searching for the unknown!<br />
+    Last updated: <span id="lastUpdated"></span>
   </footer>
 
   <script>
@@ -259,6 +261,9 @@
       const menu = document.getElementById('mobileMenu');
       menu.classList.toggle('active');
     }
+
+    // Set last updated date
+    document.getElementById('lastUpdated').textContent = new Date().toLocaleString();
   </script>
 </body>
 </html>
